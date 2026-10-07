@@ -100,6 +100,23 @@ export const erpRoutes: ErpRoute[] = [
   route('/compliance/inspections', 'Inspection readiness', 'Administration', 'Inspection checklist, evidence library, findings, owners, due dates and closure status.', 'report'),
   route('/community', 'Community & outreach', 'Engagement', 'Events, partnerships, volunteer programs, donations, outreach contacts and public engagement.'),
   route('/community/events', 'Community events', 'Engagement', 'Event planning, registrations, attendance, volunteers, budget and post-event evaluation.', 'calendar'),
+  route('/fleet', 'Fleet dashboard', 'Operations', 'Vehicle readiness, inspections, route safety, fuel usage and repair status.', 'report'),
+  route('/fleet/vehicles', 'Vehicle register', 'Operations', 'Vehicle records, ownership, capacity, insurance, inspection and assignment history.'),
+  route('/fleet/inspections', 'Fleet inspections', 'Operations', 'Inspection calendar, defects, compliance documents and approval workflow.', 'workflow'),
+  route('/fleet/fuel', 'Fuel logs', 'Operations', 'Fuel entries, mileage, consumption trends, vendors and monthly reconciliation.', 'report'),
+  route('/resources', 'Resource library', 'Academics', 'Digital resources, textbooks, teacher guides, curriculum files and controlled sharing.'),
+  route('/resources/textbooks', 'Textbook inventory', 'Academics', 'Textbook stock, issue history, class allocations, condition and reorder levels.'),
+  route('/resources/collections', 'Digital collections', 'Academics', 'Subject collections, access rules, attachments, review status and usage.'),
+  route('/engagement', 'Engagement dashboard', 'Student services', 'Clubs, activities, competitions, achievements and participation analytics.', 'report'),
+  route('/engagement/clubs', 'Clubs & activities', 'Student services', 'Club rosters, supervisors, schedules, attendance and activity plans.', 'calendar'),
+  route('/engagement/achievements', 'Achievements', 'Student services', 'Student awards, certificates, competitions, evidence and publishing workflow.', 'detail'),
+  route('/facilities', 'Facilities dashboard', 'Operations', 'Campus spaces, maintenance plans, work orders, utilities and inspections.', 'report'),
+  route('/facilities/rooms', 'Room register', 'Operations', 'Room capacity, equipment, availability, bookings and responsible staff.'),
+  route('/facilities/work-orders', 'Maintenance work orders', 'Operations', 'Requests, priorities, assignments, costs, vendors and completion evidence.', 'workflow'),
+  route('/facilities/utilities', 'Utilities management', 'Operations', 'Electricity, water, heating, internet usage, bills and consumption trends.', 'report'),
+  route('/localization', 'Language settings', 'Administration', 'Dari, Pashto and English content settings, locale defaults and translation coverage.', 'settings'),
+  route('/localization/translations', 'Translation workspace', 'Administration', 'Translation keys, review queue, publishing status and localized content.'),
+  route('/localization/templates', 'Localized templates', 'Engagement', 'Multilingual notices, messages, certificates and family communication templates.', 'settings'),
 ]
 
 export const routeByPath = new Map(erpRoutes.map((item) => [item.path, item]))
