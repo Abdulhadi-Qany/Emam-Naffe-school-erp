@@ -35,6 +35,24 @@ async function requireUser() {
 
 async function requirePermission(userId: string, permission: string) {
   const roles = await db.select({ permissions: staffRoles.permissions }).from(staffRoles).where(and(eq(staffRoles.schoolId, SCHOOL_ID), eq(staffRoles.userId, userId)))
+
+  // Bootstrap the first authenticated school administrator so a newly installed
+  // school can be configured without a separate provisioning screen. Once any
+  // staff role exists, every permission is enforced normally.
+  if (roles.length === 0) {
+    const existingStaff = await db.select({ id: staffRoles.id }).from(staffRoles).where(eq(staffRoles.schoolId, SCHOOL_ID)).limit(1)
+    if (existingStaff.length === 0) {
+      await db.insert(staffRoles).values({
+        id: crypto.randomUUID(),
+        schoolId: SCHOOL_ID,
+        userId,
+        role: 'school_admin',
+        permissions: ['*'],
+      }).onConflictDoNothing()
+      return
+    }
+  }
+
   const allowed = roles.some(({ permissions }) => Array.isArray(permissions) && (permissions as unknown[]).some((item) => item === '*' || item === permission))
   if (!allowed) throw new Error('Forbidden')
 }
