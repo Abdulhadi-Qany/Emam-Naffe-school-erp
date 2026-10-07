@@ -87,6 +87,19 @@ export const erpRoutes: ErpRoute[] = [
   route('/documents/certificates', 'Certificates', 'Engagement', 'Batch certificate generation, student selection, numbering and approval.', 'workflow'),
   route('/reports', 'Report center', 'Analytics', 'Saved reports, scheduled exports, custom report builder and MoE-style reporting.', 'report'),
   route('/reports/attendance-summary', 'Attendance report', 'Analytics', 'Filtered report with charts, comparison table, print and export.', 'report'),
+  route('/procurement', 'Procurement & purchasing', 'Operations', 'Purchase requests, quotations, purchase orders, goods receiving, vendor bills and approval workflows.', 'workflow'),
+  route('/procurement/vendors', 'Vendor directory', 'Operations', 'Supplier profiles, contracts, contacts, tax details, ratings and payment history.'),
+  route('/procurement/requests', 'Purchase requests', 'Operations', 'Department requests, budget checks, approvals, quotations and conversion to purchase orders.', 'workflow'),
+  route('/cafeteria', 'Cafeteria & meals', 'Operations', 'Meal plans, menus, kitchen production, student subscriptions, allergens and daily meal counts.'),
+  route('/cafeteria/menus', 'Menu planning', 'Operations', 'Weekly menus, nutrition values, allergens, approvals and family publication.', 'calendar'),
+  route('/security', 'Security & safeguarding', 'Welfare', 'Safeguarding cases, incident reporting, visitor controls, emergency contacts and restricted access.', 'workflow'),
+  route('/security/incidents', 'Incident register', 'Welfare', 'Incident intake, severity, people involved, actions, notifications and confidential follow-up.', 'detail'),
+  route('/it-portal', 'IT & portal management', 'Administration', 'User access, devices, support tickets, portal configuration, integrations and system health.'),
+  route('/it-portal/tickets', 'IT support desk', 'Administration', 'Support requests, priorities, assignments, SLA tracking and resolution history.', 'workflow'),
+  route('/compliance', 'Compliance & accreditation', 'Administration', 'Policy register, inspections, accreditation evidence, action plans and regulatory deadlines.', 'report'),
+  route('/compliance/inspections', 'Inspection readiness', 'Administration', 'Inspection checklist, evidence library, findings, owners, due dates and closure status.', 'report'),
+  route('/community', 'Community & outreach', 'Engagement', 'Events, partnerships, volunteer programs, donations, outreach contacts and public engagement.'),
+  route('/community/events', 'Community events', 'Engagement', 'Event planning, registrations, attendance, volunteers, budget and post-event evaluation.', 'calendar'),
 ]
 
 export const routeByPath = new Map(erpRoutes.map((item) => [item.path, item]))
