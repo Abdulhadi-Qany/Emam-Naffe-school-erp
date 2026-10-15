@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
+    "target": "ES2022",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
-    "target": "ES6",
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
@@ -11,6 +11,7 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "allowImportingTsExtensions": true,
     "jsx": "react-jsx",
     "incremental": true,
     "plugins": [
@@ -27,7 +28,24 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts"
+    ".next/dev/types/**/*.ts",
+    " drizzle.config.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules",
+    "FIXED_*.ts",
+    "FIXED_*.tsx",
+    "*_FIX_*.ts",
+    "SEC-*_FIX_*.ts",
+    "PERF-*_FIX_*.ts",
+    "REL-*_FIX_*.ts",
+    "MAINT-*_FIX_*.ts",
+    "TEST_*.ts",
+    "scripts/seed-admin.ts",
+    "scripts/create-admin-bcrypt.ts",
+    "scripts/debug-perm.ts",
+    "scripts/fix-token.ts",
+    "scripts/make-admin.ts",
+    "scripts/check-role.ts"
+  ]
 }

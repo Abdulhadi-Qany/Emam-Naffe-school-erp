@@ -1,0 +1,5 @@
+export { Address } from './Address'
+export { Guardian } from './Guardian'
+export { HealthRecord } from './HealthRecord'
+export { Student, StudentDocument } from './Student'
+export type { StudentProps, StudentDocumentProps } from './Student'

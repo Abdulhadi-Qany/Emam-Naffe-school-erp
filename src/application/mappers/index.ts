@@ -1,0 +1,1 @@
+export { StudentMapper } from './StudentMapper'

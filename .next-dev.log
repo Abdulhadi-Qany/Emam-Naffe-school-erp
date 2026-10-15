@@ -1,0 +1,549 @@
+
+> my-project@0.1.0 dev
+> next dev
+
+▲ Next.js 16.3.3 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://10.2.0.2:3000
+- Environments: .env.local, .env
+✓ Ready in 8.5s
+✓ Running next.config.mjs took 24ms
+
+ GET / 307 in 3.6s (next.js: 1338ms, application-code: 2.3s)
+ GET /sign-in 200 in 152ms (next.js: 70ms, application-code: 82ms)
+ GET /api/academic/grades 401 in 443ms (next.js: 358ms, application-code: 85ms)
+ GET /api/dashboard/overview 200 in 203ms (next.js: 52ms, application-code: 151ms)
+[EBPS] ERROR List students request failed {"message":"Authentication required"}
+ GET /api/v2/students 401 in 660ms (next.js: 643ms, application-code: 17ms)
+ POST /api/auth/sign-up/email 200 in 1404ms (next.js: 1191ms, application-code: 213ms)
+ GET /api/profile 403 in 89ms (next.js: 64ms, application-code: 26ms)
+ GET /api/profile 403 in 191ms (next.js: 28ms, application-code: 163ms)
+ POST /api/auth/sign-in/email 200 in 179ms (next.js: 27ms, application-code: 151ms)
+ GET /api/profile 200 in 31ms (next.js: 5ms, application-code: 26ms)
+ GET /api/academic/grades 200 in 39ms (next.js: 6ms, application-code: 34ms)
+ GET /api/v2/students 200 in 80ms (next.js: 6ms, application-code: 74ms)
+ GET /api/dashboard/overview 200 in 64ms (next.js: 6ms, application-code: 57ms)
+ GET / 307 in 61ms (next.js: 10ms, application-code: 51ms)
+ GET /sign-in 200 in 63ms (next.js: 12ms, application-code: 51ms)
+ GET /favicon.ico 307 in 980ms (next.js: 919ms, application-code: 61ms)
+ GET /sign-in 307 in 304ms (next.js: 12ms, application-code: 292ms)
+ GET / 200 in 346ms (next.js: 17ms, application-code: 329ms)
+ GET /api/dashboard/overview 200 in 134ms (next.js: 7ms, application-code: 127ms)
+ GET /api/dashboard/overview 200 in 52ms (next.js: 6ms, application-code: 46ms)
+ GET /calendar 200 in 106ms (next.js: 31ms, application-code: 76ms)
+⨯ Error: Failed query: select "id", "school_id", "module", "title", "reference", "status", "data", "created_by", "created_at", "updated_at" from "erp_records" where ("erp_records"."school_id" = $1 and "erp_records"."module" = $2) order by "erp_records"."updated_at" desc limit $3
+params: emam-bukhari-private-school,calendar,100
+    at async listRecords (app\actions\erp.ts:69:16)
+  67 |   const filters = [eq(erpRecords.schoolId, SCHOOL_ID), eq(erpRecords.module, module)]
+  68 |   if (query) filters.push(or(ilike(erpRecords.title, `%${query}%`), ilike(erpRecords.reference, `%${query}%`)) as typeof filters[number])
+> 69 |   const rows = await db.select().from(erpRecords).where(and(...filters)).orderBy(desc(erpRecords.updatedAt)).limit(pageSize).offset((page - 1) * pageSize)
+     |                ^
+  70 |   return { rows, page, pageSize }
+  71 | }
+  72 | {
+  query: 'select "id", "school_id", "module", "title", "reference", "status", "data", "created_by", "created_at", "updated_at" from "erp_records" where ("erp_records"."school_id" = $1 and "erp_records"."module" = $2) order by "erp_records"."updated_at" desc limit $3',
+  params: [ 'emam-bukhari-private-school', 'calendar', 100 ],
+  digest: '947928372',
+  [cause]: error: relation "erp_records" does not exist
+      at async listRecords (app\actions\erp.ts:69:16)
+    67 |   const filters = [eq(erpRecords.schoolId, SCHOOL_ID), eq(erpRecords.module, module)]
+    68 |   if (query) filters.push(or(ilike(erpRecords.title, `%${query}%`), ilike(erpRecords.reference, `%${query}%`)) as typeof filters[number])
+  > 69 |   const rows = await db.select().from(erpRecords).where(and(...filters)).orderBy(desc(erpRecords.updatedAt)).limit(pageSize).offset((page - 1) * pageSize)
+       |                ^
+    70 |   return { rows, page, pageSize }
+    71 | }
+    72 | {
+    length: 111,
+    severity: 'ERROR',
+    code: '42P01',
+    detail: undefined,
+    hint: undefined,
+    position: '123',
+    internalPosition: undefined,
+    internalQuery: undefined,
+    where: undefined,
+    schema: undefined,
+    table: undefined,
+    column: undefined,
+    dataType: undefined,
+    constraint: undefined,
+    file: 'parse_relation.c',
+    line: '1469',
+    routine: 'parserOpenTable'
+  }
+}
+ POST /calendar 500 in 1032ms (next.js: 10ms, application-code: 1023ms)
+  └─ ƒ listRecords("calendar", {"page":1,"pageSize":100}) in 23ms app/actions/erp.ts
+⨯ Error: Failed query: select "id", "school_id", "module", "title", "reference", "status", "data", "created_by", "created_at", "updated_at" from "erp_records" where ("erp_records"."school_id" = $1 and "erp_records"."module" = $2) order by "erp_records"."updated_at" desc limit $3
+params: emam-bukhari-private-school,calendar,100
+    at async listRecords (app\actions\erp.ts:69:16)
+  67 |   const filters = [eq(erpRecords.schoolId, SCHOOL_ID), eq(erpRecords.module, module)]
+  68 |   if (query) filters.push(or(ilike(erpRecords.title, `%${query}%`), ilike(erpRecords.reference, `%${query}%`)) as typeof filters[number])
+> 69 |   const rows = await db.select().from(erpRecords).where(and(...filters)).orderBy(desc(erpRecords.updatedAt)).limit(pageSize).offset((page - 1) * pageSize)
+     |                ^
+  70 |   return { rows, page, pageSize }
+  71 | }
+  72 | {
+  query: 'select "id", "school_id", "module", "title", "reference", "status", "data", "created_by", "created_at", "updated_at" from "erp_records" where ("erp_records"."school_id" = $1 and "erp_records"."module" = $2) order by "erp_records"."updated_at" desc limit $3',
+  params: [ 'emam-bukhari-private-school', 'calendar', 100 ],
+  digest: '947928372',
+  [cause]: error: relation "erp_records" does not exist
+      at async listRecords (app\actions\erp.ts:69:16)
+    67 |   const filters = [eq(erpRecords.schoolId, SCHOOL_ID), eq(erpRecords.module, module)]
+    68 |   if (query) filters.push(or(ilike(erpRecords.title, `%${query}%`), ilike(erpRecords.reference, `%${query}%`)) as typeof filters[number])
+  > 69 |   const rows = await db.select().from(erpRecords).where(and(...filters)).orderBy(desc(erpRecords.updatedAt)).limit(pageSize).offset((page - 1) * pageSize)
+       |                ^
+    70 |   return { rows, page, pageSize }
+    71 | }
+    72 | {
+    length: 111,
+    severity: 'ERROR',
+    code: '42P01',
+    detail: undefined,
+    hint: undefined,
+    position: '123',
+    internalPosition: undefined,
+    internalQuery: undefined,
+    where: undefined,
+    schema: undefined,
+    table: undefined,
+    column: undefined,
+    dataType: undefined,
+    constraint: undefined,
+    file: 'parse_relation.c',
+    line: '1469',
+    routine: 'parserOpenTable'
+  }
+}
+ POST /calendar 500 in 130ms (next.js: 32ms, application-code: 99ms)
+  └─ ƒ listRecords("calendar", {"page":1,"pageSize":100}) in 65ms app/actions/erp.ts
+⨯ Error: Failed query: insert into "erp_records" ("id", "school_id", "module", "title", "reference", "status", "data", "created_by", "created_at", "updated_at") values ($1, $2, $3, $4, $5, $6, $7, $8, default, default) returning "id", "school_id", "module", "title", "reference", "status", "data", "created_by", "created_at", "updated_at"
+params: 8e03f6e3-733d-4b0f-90a9-0f7e70fcc901,emam-bukhari-private-school,calendar,hjgh,ghjh,Active,{"notes":"ghjgh"},VZbKO9yj06JepkWJOLvTond4ahmZzp01
+    at async createRecord (app\actions\erp.ts:80:20)
+  78 |   const userId = await requireUser()
+  79 |   await requirePermission(userId, `${module}:write`)
+> 80 |   const [record] = await db.insert(erpRecords).values({ id: crypto.randomUUID(), schoolId: SCHOOL_ID, module, title, reference, status, data: input.data ?? {}, createdBy: userId }).returning()
+     |                    ^
+  81 |   revalidatePath('/')
+  82 |   return record
+  83 | } {
+  query: 'insert into "erp_records" ("id", "school_id", "module", "title", "reference", "status", "data", "created_by", "created_at", "updated_at") values ($1, $2, $3, $4, $5, $6, $7, $8, default, default) returning "id", "school_id", "module", "title", "reference", "status", "data", "created_by", "created_at", "updated_at"',
+  params: [
+    '8e03f6e3-733d-4b0f-90a9-0f7e70fcc901',
+    'emam-bukhari-private-school',
+    'calendar',
+    'hjgh',
+    'ghjh',
+    'Active',
+    '{"notes":"ghjgh"}',
+    'VZbKO9yj06JepkWJOLvTond4ahmZzp01'
+  ],
+  digest: '4229254349',
+  [cause]: error: relation "erp_records" does not exist
+      at async createRecord (app\actions\erp.ts:80:20)
+    78 |   const userId = await requireUser()
+    79 |   await requirePermission(userId, `${module}:write`)
+  > 80 |   const [record] = await db.insert(erpRecords).values({ id: crypto.randomUUID(), schoolId: SCHOOL_ID, module, title, reference, status, data: input.data ?? {}, createdBy: userId }).returning()
+       |                    ^
+    81 |   revalidatePath('/')
+    82 |   return record
+    83 | } {
+    length: 110,
+    severity: 'ERROR',
+    code: '42P01',
+    detail: undefined,
+    hint: undefined,
+    position: '13',
+    internalPosition: undefined,
+    internalQuery: undefined,
+    where: undefined,
+    schema: undefined,
+    table: undefined,
+    column: undefined,
+    dataType: undefined,
+    constraint: undefined,
+    file: 'parse_relation.c',
+    line: '1469',
+    routine: 'parserOpenTable'
+  }
+}
+ POST /calendar 500 in 126ms (next.js: 24ms, application-code: 102ms)
+  └─ ƒ createRecord({"data":{"notes":"ghjgh"},"module":"calendar","reference":"ghjh","...":"2 items not stringified"}) in 68ms app/actions/erp.ts
+ GET /activity 200 in 139ms (next.js: 24ms, application-code: 115ms)
+⨯ Error: Failed query: select "id", "school_id", "module", "title", "reference", "status", "data", "created_by", "created_at", "updated_at" from "erp_records" where ("erp_records"."school_id" = $1 and "erp_records"."module" = $2) order by "erp_records"."updated_at" desc limit $3
+params: emam-bukhari-private-school,activity,100
+    at async listRecords (app\actions\erp.ts:69:16)
+  67 |   const filters = [eq(erpRecords.schoolId, SCHOOL_ID), eq(erpRecords.module, module)]
+  68 |   if (query) filters.push(or(ilike(erpRecords.title, `%${query}%`), ilike(erpRecords.reference, `%${query}%`)) as typeof filters[number])
+> 69 |   const rows = await db.select().from(erpRecords).where(and(...filters)).orderBy(desc(erpRecords.updatedAt)).limit(pageSize).offset((page - 1) * pageSize)
+     |                ^
+  70 |   return { rows, page, pageSize }
+  71 | }
+  72 | {
+  query: 'select "id", "school_id", "module", "title", "reference", "status", "data", "created_by", "created_at", "updated_at" from "erp_records" where ("erp_records"."school_id" = $1 and "erp_records"."module" = $2) order by "erp_records"."updated_at" desc limit $3',
+  params: [ 'emam-bukhari-private-school', 'activity', 100 ],
+  digest: '3069771636',
+  [cause]: error: relation "erp_records" does not exist
+      at async listRecords (app\actions\erp.ts:69:16)
+    67 |   const filters = [eq(erpRecords.schoolId, SCHOOL_ID), eq(erpRecords.module, module)]
+    68 |   if (query) filters.push(or(ilike(erpRecords.title, `%${query}%`), ilike(erpRecords.reference, `%${query}%`)) as typeof filters[number])
+  > 69 |   const rows = await db.select().from(erpRecords).where(and(...filters)).orderBy(desc(erpRecords.updatedAt)).limit(pageSize).offset((page - 1) * pageSize)
+       |                ^
+    70 |   return { rows, page, pageSize }
+    71 | }
+    72 | {
+    length: 111,
+    severity: 'ERROR',
+    code: '42P01',
+    detail: undefined,
+    hint: undefined,
+    position: '123',
+    internalPosition: undefined,
+    internalQuery: undefined,
+    where: undefined,
+    schema: undefined,
+    table: undefined,
+    column: undefined,
+    dataType: undefined,
+    constraint: undefined,
+    file: 'parse_relation.c',
+    line: '1469',
+    routine: 'parserOpenTable'
+  }
+}
+ POST /activity 500 in 65ms (next.js: 14ms, application-code: 51ms)
+  └─ ƒ listRecords("activity", {"page":1,"pageSize":100}) in 19ms app/actions/erp.ts
+⨯ Error: Failed query: select "id", "school_id", "module", "title", "reference", "status", "data", "created_by", "created_at", "updated_at" from "erp_records" where ("erp_records"."school_id" = $1 and "erp_records"."module" = $2) order by "erp_records"."updated_at" desc limit $3
+params: emam-bukhari-private-school,activity,100
+    at async listRecords (app\actions\erp.ts:69:16)
+  67 |   const filters = [eq(erpRecords.schoolId, SCHOOL_ID), eq(erpRecords.module, module)]
+  68 |   if (query) filters.push(or(ilike(erpRecords.title, `%${query}%`), ilike(erpRecords.reference, `%${query}%`)) as typeof filters[number])
+> 69 |   const rows = await db.select().from(erpRecords).where(and(...filters)).orderBy(desc(erpRecords.updatedAt)).limit(pageSize).offset((page - 1) * pageSize)
+     |                ^
+  70 |   return { rows, page, pageSize }
+  71 | }
+  72 | {
+  query: 'select "id", "school_id", "module", "title", "reference", "status", "data", "created_by", "created_at", "updated_at" from "erp_records" where ("erp_records"."school_id" = $1 and "erp_records"."module" = $2) order by "erp_records"."updated_at" desc limit $3',
+  params: [ 'emam-bukhari-private-school', 'activity', 100 ],
+  digest: '3069771636',
+  [cause]: error: relation "erp_records" does not exist
+      at async listRecords (app\actions\erp.ts:69:16)
+    67 |   const filters = [eq(erpRecords.schoolId, SCHOOL_ID), eq(erpRecords.module, module)]
+    68 |   if (query) filters.push(or(ilike(erpRecords.title, `%${query}%`), ilike(erpRecords.reference, `%${query}%`)) as typeof filters[number])
+  > 69 |   const rows = await db.select().from(erpRecords).where(and(...filters)).orderBy(desc(erpRecords.updatedAt)).limit(pageSize).offset((page - 1) * pageSize)
+       |                ^
+    70 |   return { rows, page, pageSize }
+    71 | }
+    72 | {
+    length: 111,
+    severity: 'ERROR',
+    code: '42P01',
+    detail: undefined,
+    hint: undefined,
+    position: '123',
+    internalPosition: undefined,
+    internalQuery: undefined,
+    where: undefined,
+    schema: undefined,
+    table: undefined,
+    column: undefined,
+    dataType: undefined,
+    constraint: undefined,
+    file: 'parse_relation.c',
+    line: '1469',
+    routine: 'parserOpenTable'
+  }
+}
+ POST /activity 500 in 120ms (next.js: 11ms, application-code: 109ms)
+  └─ ƒ listRecords("activity", {"page":1,"pageSize":100}) in 76ms app/actions/erp.ts
+ GET /students 200 in 136ms (next.js: 24ms, application-code: 112ms)
+⨯ Error: Failed query: select "id", "school_id", "module", "title", "reference", "status", "data", "created_by", "created_at", "updated_at" from "erp_records" where ("erp_records"."school_id" = $1 and "erp_records"."module" = $2) order by "erp_records"."updated_at" desc limit $3
+params: emam-bukhari-private-school,students,100
+    at async listRecords (app\actions\erp.ts:69:16)
+  67 |   const filters = [eq(erpRecords.schoolId, SCHOOL_ID), eq(erpRecords.module, module)]
+  68 |   if (query) filters.push(or(ilike(erpRecords.title, `%${query}%`), ilike(erpRecords.reference, `%${query}%`)) as typeof filters[number])
+> 69 |   const rows = await db.select().from(erpRecords).where(and(...filters)).orderBy(desc(erpRecords.updatedAt)).limit(pageSize).offset((page - 1) * pageSize)
+     |                ^
+  70 |   return { rows, page, pageSize }
+  71 | }
+  72 | {
+  query: 'select "id", "school_id", "module", "title", "reference", "status", "data", "created_by", "created_at", "updated_at" from "erp_records" where ("erp_records"."school_id" = $1 and "erp_records"."module" = $2) order by "erp_records"."updated_at" desc limit $3',
+  params: [ 'emam-bukhari-private-school', 'students', 100 ],
+  digest: '1763916468',
+  [cause]: error: relation "erp_records" does not exist
+      at async listRecords (app\actions\erp.ts:69:16)
+    67 |   const filters = [eq(erpRecords.schoolId, SCHOOL_ID), eq(erpRecords.module, module)]
+    68 |   if (query) filters.push(or(ilike(erpRecords.title, `%${query}%`), ilike(erpRecords.reference, `%${query}%`)) as typeof filters[number])
+  > 69 |   const rows = await db.select().from(erpRecords).where(and(...filters)).orderBy(desc(erpRecords.updatedAt)).limit(pageSize).offset((page - 1) * pageSize)
+       |                ^
+    70 |   return { rows, page, pageSize }
+    71 | }
+    72 | {
+    length: 111,
+    severity: 'ERROR',
+    code: '42P01',
+    detail: undefined,
+    hint: undefined,
+    position: '123',
+    internalPosition: undefined,
+    internalQuery: undefined,
+    where: undefined,
+    schema: undefined,
+    table: undefined,
+    column: undefined,
+    dataType: undefined,
+    constraint: undefined,
+    file: 'parse_relation.c',
+    line: '1469',
+    routine: 'parserOpenTable'
+  }
+}
+ POST /students 500 in 68ms (next.js: 11ms, application-code: 57ms)
+  └─ ƒ listRecords("students", {"page":1,"pageSize":100}) in 23ms app/actions/erp.ts
+⨯ Error: Failed query: select "id", "school_id", "module", "title", "reference", "status", "data", "created_by", "created_at", "updated_at" from "erp_records" where ("erp_records"."school_id" = $1 and "erp_records"."module" = $2) order by "erp_records"."updated_at" desc limit $3
+params: emam-bukhari-private-school,students,100
+    at async listRecords (app\actions\erp.ts:69:16)
+  67 |   const filters = [eq(erpRecords.schoolId, SCHOOL_ID), eq(erpRecords.module, module)]
+  68 |   if (query) filters.push(or(ilike(erpRecords.title, `%${query}%`), ilike(erpRecords.reference, `%${query}%`)) as typeof filters[number])
+> 69 |   const rows = await db.select().from(erpRecords).where(and(...filters)).orderBy(desc(erpRecords.updatedAt)).limit(pageSize).offset((page - 1) * pageSize)
+     |                ^
+  70 |   return { rows, page, pageSize }
+  71 | }
+  72 | {
+  query: 'select "id", "school_id", "module", "title", "reference", "status", "data", "created_by", "created_at", "updated_at" from "erp_records" where ("erp_records"."school_id" = $1 and "erp_records"."module" = $2) order by "erp_records"."updated_at" desc limit $3',
+  params: [ 'emam-bukhari-private-school', 'students', 100 ],
+  digest: '1763916468',
+  [cause]: error: relation "erp_records" does not exist
+      at async listRecords (app\actions\erp.ts:69:16)
+    67 |   const filters = [eq(erpRecords.schoolId, SCHOOL_ID), eq(erpRecords.module, module)]
+    68 |   if (query) filters.push(or(ilike(erpRecords.title, `%${query}%`), ilike(erpRecords.reference, `%${query}%`)) as typeof filters[number])
+  > 69 |   const rows = await db.select().from(erpRecords).where(and(...filters)).orderBy(desc(erpRecords.updatedAt)).limit(pageSize).offset((page - 1) * pageSize)
+       |                ^
+    70 |   return { rows, page, pageSize }
+    71 | }
+    72 | {
+    length: 111,
+    severity: 'ERROR',
+    code: '42P01',
+    detail: undefined,
+    hint: undefined,
+    position: '123',
+    internalPosition: undefined,
+    internalQuery: undefined,
+    where: undefined,
+    schema: undefined,
+    table: undefined,
+    column: undefined,
+    dataType: undefined,
+    constraint: undefined,
+    file: 'parse_relation.c',
+    line: '1469',
+    routine: 'parserOpenTable'
+  }
+}
+ POST /students 500 in 107ms (next.js: 14ms, application-code: 94ms)
+  └─ ƒ listRecords("students", {"page":1,"pageSize":100}) in 65ms app/actions/erp.ts
+ GET /students/new 200 in 246ms (next.js: 26ms, application-code: 220ms)
+⨯ Error: Failed query: select "id", "school_id", "module", "title", "reference", "status", "data", "created_by", "created_at", "updated_at" from "erp_records" where ("erp_records"."school_id" = $1 and "erp_records"."module" = $2) order by "erp_records"."updated_at" desc limit $3
+params: emam-bukhari-private-school,students/new,100
+    at async listRecords (app\actions\erp.ts:69:16)
+  67 |   const filters = [eq(erpRecords.schoolId, SCHOOL_ID), eq(erpRecords.module, module)]
+  68 |   if (query) filters.push(or(ilike(erpRecords.title, `%${query}%`), ilike(erpRecords.reference, `%${query}%`)) as typeof filters[number])
+> 69 |   const rows = await db.select().from(erpRecords).where(and(...filters)).orderBy(desc(erpRecords.updatedAt)).limit(pageSize).offset((page - 1) * pageSize)
+     |                ^
+  70 |   return { rows, page, pageSize }
+  71 | }
+  72 | {
+  query: 'select "id", "school_id", "module", "title", "reference", "status", "data", "created_by", "created_at", "updated_at" from "erp_records" where ("erp_records"."school_id" = $1 and "erp_records"."module" = $2) order by "erp_records"."updated_at" desc limit $3',
+  params: [ 'emam-bukhari-private-school', 'students/new', 100 ],
+  digest: '917491700',
+  [cause]: error: relation "erp_records" does not exist
+      at async listRecords (app\actions\erp.ts:69:16)
+    67 |   const filters = [eq(erpRecords.schoolId, SCHOOL_ID), eq(erpRecords.module, module)]
+    68 |   if (query) filters.push(or(ilike(erpRecords.title, `%${query}%`), ilike(erpRecords.reference, `%${query}%`)) as typeof filters[number])
+  > 69 |   const rows = await db.select().from(erpRecords).where(and(...filters)).orderBy(desc(erpRecords.updatedAt)).limit(pageSize).offset((page - 1) * pageSize)
+       |                ^
+    70 |   return { rows, page, pageSize }
+    71 | }
+    72 | {
+    length: 111,
+    severity: 'ERROR',
+    code: '42P01',
+    detail: undefined,
+    hint: undefined,
+    position: '123',
+    internalPosition: undefined,
+    internalQuery: undefined,
+    where: undefined,
+    schema: undefined,
+    table: undefined,
+    column: undefined,
+    dataType: undefined,
+    constraint: undefined,
+    file: 'parse_relation.c',
+    line: '1469',
+    routine: 'parserOpenTable'
+  }
+}
+ POST /students/new 500 in 55ms (next.js: 12ms, application-code: 42ms)
+  └─ ƒ listRecords("students/new", {"page":1,"pageSize":100}) in 16ms app/actions/erp.ts
+⨯ Error: Failed query: select "id", "school_id", "module", "title", "reference", "status", "data", "created_by", "created_at", "updated_at" from "erp_records" where ("erp_records"."school_id" = $1 and "erp_records"."module" = $2) order by "erp_records"."updated_at" desc limit $3
+params: emam-bukhari-private-school,students/new,100
+    at async listRecords (app\actions\erp.ts:69:16)
+  67 |   const filters = [eq(erpRecords.schoolId, SCHOOL_ID), eq(erpRecords.module, module)]
+  68 |   if (query) filters.push(or(ilike(erpRecords.title, `%${query}%`), ilike(erpRecords.reference, `%${query}%`)) as typeof filters[number])
+> 69 |   const rows = await db.select().from(erpRecords).where(and(...filters)).orderBy(desc(erpRecords.updatedAt)).limit(pageSize).offset((page - 1) * pageSize)
+     |                ^
+  70 |   return { rows, page, pageSize }
+  71 | }
+  72 | {
+  query: 'select "id", "school_id", "module", "title", "reference", "status", "data", "created_by", "created_at", "updated_at" from "erp_records" where ("erp_records"."school_id" = $1 and "erp_records"."module" = $2) order by "erp_records"."updated_at" desc limit $3',
+  params: [ 'emam-bukhari-private-school', 'students/new', 100 ],
+  digest: '917491700',
+  [cause]: error: relation "erp_records" does not exist
+      at async listRecords (app\actions\erp.ts:69:16)
+    67 |   const filters = [eq(erpRecords.schoolId, SCHOOL_ID), eq(erpRecords.module, module)]
+    68 |   if (query) filters.push(or(ilike(erpRecords.title, `%${query}%`), ilike(erpRecords.reference, `%${query}%`)) as typeof filters[number])
+  > 69 |   const rows = await db.select().from(erpRecords).where(and(...filters)).orderBy(desc(erpRecords.updatedAt)).limit(pageSize).offset((page - 1) * pageSize)
+       |                ^
+    70 |   return { rows, page, pageSize }
+    71 | }
+    72 | {
+    length: 111,
+    severity: 'ERROR',
+    code: '42P01',
+    detail: undefined,
+    hint: undefined,
+    position: '123',
+    internalPosition: undefined,
+    internalQuery: undefined,
+    where: undefined,
+    schema: undefined,
+    table: undefined,
+    column: undefined,
+    dataType: undefined,
+    constraint: undefined,
+    file: 'parse_relation.c',
+    line: '1469',
+    routine: 'parserOpenTable'
+  }
+}
+ POST /students/new 500 in 105ms (next.js: 12ms, application-code: 93ms)
+  └─ ƒ listRecords("students/new", {"page":1,"pageSize":100}) in 63ms app/actions/erp.ts
+ GET /parents 200 in 151ms (next.js: 23ms, application-code: 128ms)
+⨯ Error: Failed query: select "id", "school_id", "module", "title", "reference", "status", "data", "created_by", "created_at", "updated_at" from "erp_records" where ("erp_records"."school_id" = $1 and "erp_records"."module" = $2) order by "erp_records"."updated_at" desc limit $3
+params: emam-bukhari-private-school,parents,100
+    at async listRecords (app\actions\erp.ts:69:16)
+  67 |   const filters = [eq(erpRecords.schoolId, SCHOOL_ID), eq(erpRecords.module, module)]
+  68 |   if (query) filters.push(or(ilike(erpRecords.title, `%${query}%`), ilike(erpRecords.reference, `%${query}%`)) as typeof filters[number])
+> 69 |   const rows = await db.select().from(erpRecords).where(and(...filters)).orderBy(desc(erpRecords.updatedAt)).limit(pageSize).offset((page - 1) * pageSize)
+     |                ^
+  70 |   return { rows, page, pageSize }
+  71 | }
+  72 | {
+  query: 'select "id", "school_id", "module", "title", "reference", "status", "data", "created_by", "created_at", "updated_at" from "erp_records" where ("erp_records"."school_id" = $1 and "erp_records"."module" = $2) order by "erp_records"."updated_at" desc limit $3',
+  params: [ 'emam-bukhari-private-school', 'parents', 100 ],
+  digest: '3830540116',
+  [cause]: error: relation "erp_records" does not exist
+      at async listRecords (app\actions\erp.ts:69:16)
+    67 |   const filters = [eq(erpRecords.schoolId, SCHOOL_ID), eq(erpRecords.module, module)]
+    68 |   if (query) filters.push(or(ilike(erpRecords.title, `%${query}%`), ilike(erpRecords.reference, `%${query}%`)) as typeof filters[number])
+  > 69 |   const rows = await db.select().from(erpRecords).where(and(...filters)).orderBy(desc(erpRecords.updatedAt)).limit(pageSize).offset((page - 1) * pageSize)
+       |                ^
+    70 |   return { rows, page, pageSize }
+    71 | }
+    72 | {
+    length: 111,
+    severity: 'ERROR',
+    code: '42P01',
+    detail: undefined,
+    hint: undefined,
+    position: '123',
+    internalPosition: undefined,
+    internalQuery: undefined,
+    where: undefined,
+    schema: undefined,
+    table: undefined,
+    column: undefined,
+    dataType: undefined,
+    constraint: undefined,
+    file: 'parse_relation.c',
+    line: '1469',
+    routine: 'parserOpenTable'
+  }
+}
+ POST /parents 500 in 64ms (next.js: 11ms, application-code: 54ms)
+  └─ ƒ listRecords("parents", {"page":1,"pageSize":100}) in 27ms app/actions/erp.ts
+⨯ Error: Failed query: select "id", "school_id", "module", "title", "reference", "status", "data", "created_by", "created_at", "updated_at" from "erp_records" where ("erp_records"."school_id" = $1 and "erp_records"."module" = $2) order by "erp_records"."updated_at" desc limit $3
+params: emam-bukhari-private-school,parents,100
+    at async listRecords (app\actions\erp.ts:69:16)
+  67 |   const filters = [eq(erpRecords.schoolId, SCHOOL_ID), eq(erpRecords.module, module)]
+  68 |   if (query) filters.push(or(ilike(erpRecords.title, `%${query}%`), ilike(erpRecords.reference, `%${query}%`)) as typeof filters[number])
+> 69 |   const rows = await db.select().from(erpRecords).where(and(...filters)).orderBy(desc(erpRecords.updatedAt)).limit(pageSize).offset((page - 1) * pageSize)
+     |                ^
+  70 |   return { rows, page, pageSize }
+  71 | }
+  72 | {
+  query: 'select "id", "school_id", "module", "title", "reference", "status", "data", "created_by", "created_at", "updated_at" from "erp_records" where ("erp_records"."school_id" = $1 and "erp_records"."module" = $2) order by "erp_records"."updated_at" desc limit $3',
+  params: [ 'emam-bukhari-private-school', 'parents', 100 ],
+  digest: '3830540116',
+  [cause]: error: relation "erp_records" does not exist
+      at async listRecords (app\actions\erp.ts:69:16)
+    67 |   const filters = [eq(erpRecords.schoolId, SCHOOL_ID), eq(erpRecords.module, module)]
+    68 |   if (query) filters.push(or(ilike(erpRecords.title, `%${query}%`), ilike(erpRecords.reference, `%${query}%`)) as typeof filters[number])
+  > 69 |   const rows = await db.select().from(erpRecords).where(and(...filters)).orderBy(desc(erpRecords.updatedAt)).limit(pageSize).offset((page - 1) * pageSize)
+       |                ^
+    70 |   return { rows, page, pageSize }
+    71 | }
+    72 | {
+    length: 111,
+    severity: 'ERROR',
+    code: '42P01',
+    detail: undefined,
+    hint: undefined,
+    position: '123',
+    internalPosition: undefined,
+    internalQuery: undefined,
+    where: undefined,
+    schema: undefined,
+    table: undefined,
+    column: undefined,
+    dataType: undefined,
+    constraint: undefined,
+    file: 'parse_relation.c',
+    line: '1469',
+    routine: 'parserOpenTable'
+  }
+}
+ POST /parents 500 in 94ms (next.js: 11ms, application-code: 83ms)
+  └─ ƒ listRecords("parents", {"page":1,"pageSize":100}) in 56ms app/actions/erp.ts
+ GET /.well-known/appspecific/com.chrome.devtools.json 200 in 301ms (next.js: 22ms, application-code: 279ms)
+ POST /api/auth/sign-in/email 200 in 179ms (next.js: 10ms, application-code: 169ms)
+ GET /calendar 200 in 121ms (next.js: 13ms, application-code: 107ms)
+ GET /activity 200 in 75ms (next.js: 6ms, application-code: 69ms)
+ GET /students 200 in 67ms (next.js: 7ms, application-code: 60ms)
+ GET /students/new 200 in 64ms (next.js: 6ms, application-code: 58ms)
+ GET /parents 200 in 72ms (next.js: 8ms, application-code: 64ms)
+ POST /api/auth/sign-in/email 200 in 169ms (next.js: 14ms, application-code: 155ms)
+ GET /activity 200 in 106ms (next.js: 11ms, application-code: 95ms)
+ GET /students 200 in 68ms (next.js: 7ms, application-code: 61ms)
+ GET /overview 200 in 66ms (next.js: 6ms, application-code: 60ms)
+ GET /parents 200 in 244ms (next.js: 29ms, application-code: 215ms)
+ GET /.well-known/appspecific/com.chrome.devtools.json 200 in 167ms (next.js: 9ms, application-code: 158ms)
+ POST /parents 200 in 65ms (next.js: 22ms, application-code: 43ms)
+  └─ ƒ listRecords("parents", {"page":1,"pageSize":100}) in 27ms app/actions/erp.ts
+ POST /parents 200 in 31ms (next.js: 8ms, application-code: 23ms)
+  └─ ƒ listRecords("parents", {"page":1,"pageSize":100}) in 10ms app/actions/erp.ts
+ GET /.well-known/appspecific/com.chrome.devtools.json 200 in 142ms (next.js: 8ms, application-code: 134ms)
+ GET /students 200 in 83ms (next.js: 13ms, application-code: 71ms)
+ GET /.well-known/appspecific/com.chrome.devtools.json 200 in 184ms (next.js: 9ms, application-code: 176ms)
+ POST /students 200 in 55ms (next.js: 15ms, application-code: 40ms)
+  └─ ƒ listRecords("students", {"page":1,"pageSize":100}) in 20ms app/actions/erp.ts
+ POST /students 200 in 34ms (next.js: 9ms, application-code: 26ms)
+  └─ ƒ listRecords("students", {"page":1,"pageSize":100}) in 11ms app/actions/erp.ts
+ GET /timetable 200 in 47ms (next.js: 13ms, application-code: 33ms)
+ POST /timetable 200 in 97ms (next.js: 8ms, application-code: 89ms)
+  └─ ƒ listRecords("timetable", {"page":1,"pageSize":100}) in 75ms app/actions/erp.ts
+ POST /timetable 200 in 32ms (next.js: 9ms, application-code: 23ms)
+  └─ ƒ listRecords("timetable", {"page":1,"pageSize":100}) in 10ms app/actions/erp.ts
+ GET /.well-known/appspecific/com.chrome.devtools.json 200 in 278ms (next.js: 11ms, application-code: 268ms)

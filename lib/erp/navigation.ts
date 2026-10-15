@@ -13,6 +13,7 @@ export const erpRoutes: ErpRoute[] = [
   route('/activity', 'Activity log', 'Dashboard', 'Auditable timeline of frontend activity across people, academics, finance and operations.', 'report'),
   route('/notifications', 'Notifications', 'Dashboard', 'Unread alerts, approval reminders, parent messages and notification preferences.', 'workflow'),
   route('/settings', 'Settings', 'Administration', 'School profile, campuses, academic configuration, language, currency, roles, imports and appearance.', 'settings'),
+  route('/profile', 'User profile', 'Administration', 'Signed-in user account, role, contact details, notification preferences and security settings.', 'detail'),
   route('/students', 'Student directory', 'People', 'Search and manage enrolled students by grade, section, guardian, transport, hostel, scholarship and status.'),
   route('/students/new', 'New student enrollment', 'People', 'Multi-step enrollment form covering identity, guardian, address, health, documents and placement.', 'workflow'),
   route('/students/EBPS-1403-G8-0045', 'Student profile', 'People', 'Complete student record with guardians, academics, attendance, fees, health, documents and timeline.', 'detail'),
@@ -204,7 +205,6 @@ export const erpRoutes: ErpRoute[] = [
 export const routeByPath = new Map(erpRoutes.map((item) => [item.path, item]))
 export const findErpRoute = (path: string) => routeByPath.get(path) ?? route('/404', 'Workspace not found', 'System', 'This frontend route is not in the current ERP page inventory.', 'settings')
 
-export const sampleRows = ['Ahmad Rahimi · EBPS-1403-G8-0045', 'Fatima Noori · EBPS-1403-G7-0018', 'Omid Safi · EBPS-1403-G10-0081', 'Maryam Waziri · EBPS-1403-G5-0022']
 
 export const allErpPaths = erpRoutes.map((item) => item.path)
 

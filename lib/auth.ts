@@ -1,5 +1,7 @@
 import { betterAuth } from 'better-auth'
-import { Pool } from 'pg'
+import { drizzle } from 'drizzle-orm/node-postgres'
+import { drizzleAdapter } from 'better-auth/adapters/drizzle'
+import { db as appDb } from '@/lib/db'
 
 const origin = (value?: string) => value ? (value.startsWith('http') ? value : `https://${value}`) : undefined
 const trustedOrigins = [
@@ -9,9 +11,11 @@ const trustedOrigins = [
 ].filter(Boolean) as string[]
 
 export const auth = betterAuth({
-  database: new Pool({ connectionString: process.env.DATABASE_URL }),
+  database: drizzleAdapter(appDb, { provider: 'pg', usePlural: false }),
   baseURL: origin(process.env.BETTER_AUTH_URL) ?? origin(process.env.VERCEL_PROJECT_PRODUCTION_URL) ?? origin(process.env.VERCEL_URL) ?? origin(process.env.V0_RUNTIME_URL),
   trustedOrigins,
   emailAndPassword: { enabled: true },
-  ...(process.env.NODE_ENV === 'development' ? { advanced: { defaultCookieAttributes: { sameSite: 'none' as const, secure: true } } } : {}),
+  ...(process.env.NODE_ENV === 'development'
+    ? { advanced: { defaultCookieAttributes: { sameSite: 'lax' as const, secure: false } } }
+    : {}),
 })

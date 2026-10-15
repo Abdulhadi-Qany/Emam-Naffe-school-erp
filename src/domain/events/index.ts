@@ -1,0 +1,6 @@
+export { BaseDomainEvent } from './DomainEvent'
+export type { DomainEvent } from './DomainEvent'
+export { StudentEnrolledEvent } from './StudentEnrolledEvent'
+export { StudentPromotedEvent } from './StudentPromotedEvent'
+export { StudentTransferredEvent } from './StudentTransferredEvent'
+export { StudentDroppedOutEvent } from './StudentDroppedOutEvent'

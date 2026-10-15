@@ -1,0 +1,11 @@
+# --- SEC-001: bootstrap admin (no auto-creation at runtime) ---
+BOOTSTRAP_ADMIN_EMAIL=admin@school.example
+BOOTSTRAP_ADMIN_SCHOOL_ID=00000000-0000-0000-0000-000000000001
+
+# --- Rate limiting (SEC-003) ---
+RATE_LIMIT_DRIVER=memory            # memory | redis
+REDIS_URL=redis://localhost:6379
+TRUST_PROXY=true                    # set true only behind a trusted proxy
+
+# --- Permission cache (PERF-001) ---
+PERMISSION_CACHE_TTL_MS=60000

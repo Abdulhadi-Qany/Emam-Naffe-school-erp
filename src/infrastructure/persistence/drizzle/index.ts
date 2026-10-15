@@ -1,0 +1,1 @@
+export { DrizzleStudentRepository } from './DrizzleStudentRepository'

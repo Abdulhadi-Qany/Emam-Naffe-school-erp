@@ -1,0 +1,132 @@
+app/api/attendance/biometric/route.ts(30,8): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(value: { date: SQL<unknown> | Date | Placeholder<string, any>; id: string | SQL<unknown> | Placeholder<string, any>; schoolId: string | SQL<unknown> | Placeholder<...>; ... 6 more ...; classId?: string | ... 3 more ... | undefined; }): PgInsertBase<...>', gave the following error.
+    Object literal may only specify known properties, and 'checkIn' does not exist in type '{ date: SQL<unknown> | Date | Placeholder<string, any>; id: string | SQL<unknown> | Placeholder<string, any>; schoolId: string | SQL<unknown> | Placeholder<...>; ... 6 more ...; classId?: string | ... 3 more ... | undefined; }'.
+  Overload 2 of 2, '(values: { date: SQL<unknown> | Date | Placeholder<string, any>; id: string | SQL<unknown> | Placeholder<string, any>; schoolId: string | SQL<unknown> | Placeholder<...>; ... 6 more ...; classId?: string | ... 3 more ... | undefined; }[]): PgInsertBase<...>', gave the following error.
+    Object literal may only specify known properties, and 'id' does not exist in type '{ date: SQL<unknown> | Date | Placeholder<string, any>; id: string | SQL<unknown> | Placeholder<string, any>; schoolId: string | SQL<unknown> | Placeholder<...>; ... 6 more ...; classId?: string | ... 3 more ... | undefined; }[]'.
+app/api/calendar/route.ts(44,35): error TS2345: Argument of type '({ schoolId }: RouteContext, req: NextRequest) => Promise<Response>' is not assignable to parameter of type 'V1Handler<unknown>'.
+  Type 'Promise<Response>' is not assignable to type 'Promise<NextResponse<unknown>>'.
+    Type 'Response' is missing the following properties from type 'NextResponse<unknown>': cookies, [INTERNALS]
+app/api/documents/templates/route.ts(19,28): error TS2552: Cannot find name 'documents'. Did you mean 'document'?
+app/api/documents/templates/route.ts(20,46): error TS2552: Cannot find name 'documents'. Did you mean 'document'?
+app/api/documents/templates/route.ts(21,38): error TS2552: Cannot find name 'documents'. Did you mean 'document'?
+app/api/documents/templates/route.ts(23,87): error TS2552: Cannot find name 'documents'. Did you mean 'document'?
+app/api/documents/templates/route.ts(28,13): error TS2552: Cannot find name 'documents'. Did you mean 'document'?
+app/api/documents/templates/route.ts(30,21): error TS2552: Cannot find name 'documents'. Did you mean 'document'?
+app/api/documents/templates/route.ts(48,15): error TS2552: Cannot find name 'documents'. Did you mean 'document'?
+app/api/documents/verification/route.ts(19,28): error TS2552: Cannot find name 'documents'. Did you mean 'document'?
+app/api/documents/verification/route.ts(20,44): error TS2304: Cannot find name 'documents'.
+app/api/documents/verification/route.ts(21,38): error TS2304: Cannot find name 'documents'.
+app/api/documents/verification/route.ts(23,87): error TS2304: Cannot find name 'documents'.
+app/api/documents/verification/route.ts(28,13): error TS2552: Cannot find name 'documents'. Did you mean 'document'?
+app/api/documents/verification/route.ts(30,21): error TS2304: Cannot find name 'documents'.
+app/api/documents/verification/route.ts(34,12): error TS2304: Cannot find name 'paged'.
+app/api/documents/verification/route.ts(50,47): error TS2304: Cannot find name 'documents'.
+app/api/documents/verification/route.ts(50,67): error TS2304: Cannot find name 'documents'.
+app/api/documents/verification/route.ts(54,15): error TS2304: Cannot find name 'documents'.
+app/api/documents/verification/route.ts(56,17): error TS2304: Cannot find name 'documents'.
+app/api/events/[id]/route.ts(19,104): error TS2304: Cannot find name 'schoolId'.
+app/api/events/[id]/route.ts(32,9): error TS2322: Type 'string' is not assignable to type '"holiday" | "academic" | "meeting" | "sports" | "cultural" | SQL<unknown> | PgColumn<ColumnBaseConfig<ColumnDataType, string>, {}, {}> | undefined'.
+app/api/events/[id]/route.ts(38,53): error TS2304: Cannot find name 'num'.
+app/api/events/[id]/route.ts(46,19): error TS18004: No value exists in scope for the shorthand property 'schoolId'. Either declare one or provide an initializer.
+app/api/events/route.ts(17,25): error TS2304: Cannot find name 'eq'.
+app/api/events/route.ts(18,41): error TS2304: Cannot find name 'eq'.
+app/api/events/route.ts(19,44): error TS2304: Cannot find name 'eq'.
+app/api/events/route.ts(20,32): error TS2304: Cannot find name 'sql'.
+app/api/events/route.ts(22,82): error TS2304: Cannot find name 'and'.
+app/api/events/route.ts(28,14): error TS2304: Cannot find name 'and'.
+app/api/events/route.ts(66,14): error TS2304: Cannot find name 'sql'.
+app/api/exams/[id]/report-cards/route.ts(18,42): error TS2304: Cannot find name 'examReportCards'.
+app/api/exams/[id]/report-cards/route.ts(18,68): error TS2304: Cannot find name 'examReportCards'.
+app/api/exams/[id]/report-cards/route.ts(18,105): error TS2304: Cannot find name 'sql'.
+app/api/exams/[id]/report-cards/route.ts(18,111): error TS2304: Cannot find name 'examReportCards'.
+app/api/exams/[id]/report-cards/route.ts(39,15): error TS2304: Cannot find name 'examReportCards'.
+app/api/exams/[id]/report-cards/route.ts(53,12): error TS2304: Cannot find name 'created'.
+app/api/facilities/[id]/route.ts(23,106): error TS2339: Property 'title' does not exist on type '{ id: string; }'.
+app/api/facilities/[id]/route.ts(24,80): error TS2339: Property 'status' does not exist on type '{ id: string; }'.
+app/api/facilities/[id]/route.ts(25,84): error TS2339: Property 'notes' does not exist on type '{ id: string; }'.
+app/api/facilities/bookings/[id]/route.ts(23,106): error TS2339: Property 'title' does not exist on type '{ id: string; }'.
+app/api/facilities/bookings/[id]/route.ts(24,80): error TS2339: Property 'status' does not exist on type '{ id: string; }'.
+app/api/facilities/bookings/[id]/route.ts(25,84): error TS2339: Property 'notes' does not exist on type '{ id: string; }'.
+app/api/facilities/utility-bills/route.ts(12,10): error TS2304: Cannot find name 'withV1'.
+app/api/facilities/utility-bills/route.ts(12,45): error TS7031: Binding element 'schoolId' implicitly has an 'any' type.
+app/api/facilities/utility-bills/route.ts(12,57): error TS7006: Parameter 'req' implicitly has an 'any' type.
+app/api/facilities/utility-bills/route.ts(20,55): error TS2339: Property 'type' does not exist on type 'PgTableWithColumns<{ name: "utility_bills"; schema: undefined; columns: { id: PgColumn<{ name: "id"; tableName: "utility_bills"; dataType: "string"; columnType: "PgText"; data: string; driverParam: string; notNull: true; ... 7 more ...; generated: undefined; }, {}, {}>; ... 14 more ...; updatedAt: PgColumn<...>; }; ...'.
+app/api/facilities/utility-bills/route.ts(22,50): error TS2339: Property 'date' does not exist on type 'PgTableWithColumns<{ name: "utility_bills"; schema: undefined; columns: { id: PgColumn<{ name: "id"; tableName: "utility_bills"; dataType: "string"; columnType: "PgText"; data: string; driverParam: string; notNull: true; ... 7 more ...; generated: undefined; }, {}, {}>; ... 14 more ...; updatedAt: PgColumn<...>; }; ...'.
+app/api/facilities/utility-bills/route.ts(23,48): error TS2339: Property 'date' does not exist on type 'PgTableWithColumns<{ name: "utility_bills"; schema: undefined; columns: { id: PgColumn<{ name: "id"; tableName: "utility_bills"; dataType: "string"; columnType: "PgText"; data: string; driverParam: string; notNull: true; ... 7 more ...; generated: undefined; }, {}, {}>; ... 14 more ...; updatedAt: PgColumn<...>; }; ...'.
+app/api/facilities/utility-bills/route.ts(32,35): error TS2339: Property 'date' does not exist on type 'PgTableWithColumns<{ name: "utility_bills"; schema: undefined; columns: { id: PgColumn<{ name: "id"; tableName: "utility_bills"; dataType: "string"; columnType: "PgText"; data: string; driverParam: string; notNull: true; ... 7 more ...; generated: undefined; }, {}, {}>; ... 14 more ...; updatedAt: PgColumn<...>; }; ...'.
+app/api/fleet/inspections/route.ts(19,28): error TS2304: Cannot find name 'vehicleInspections'.
+app/api/fleet/inspections/route.ts(20,47): error TS2304: Cannot find name 'vehicleInspections'.
+app/api/fleet/inspections/route.ts(21,44): error TS2304: Cannot find name 'vehicleInspections'.
+app/api/fleet/inspections/route.ts(22,38): error TS2304: Cannot find name 'vehicleInspections'.
+app/api/fleet/inspections/route.ts(24,87): error TS2304: Cannot find name 'vehicleInspections'.
+app/api/fleet/inspections/route.ts(29,21): error TS2304: Cannot find name 'fleetInspections'.
+app/api/fleet/inspections/route.ts(32,78): error TS2304: Cannot find name 'vehicleInspections'.
+app/api/fleet/inspections/route.ts(34,13): error TS2304: Cannot find name 'vehicleInspections'.
+app/api/fleet/inspections/route.ts(35,30): error TS2304: Cannot find name 'vehicleInspections'.
+app/api/fleet/inspections/route.ts(36,17): error TS2304: Cannot find name 'staff'.
+app/api/fleet/inspections/route.ts(36,27): error TS2304: Cannot find name 'vehicleInspections'.
+app/api/fleet/inspections/route.ts(36,59): error TS2304: Cannot find name 'staff'.
+app/api/fleet/inspections/route.ts(38,21): error TS2304: Cannot find name 'vehicleInspections'.
+app/api/fleet/inspections/route.ts(59,15): error TS2304: Cannot find name 'vehicleInspections'.
+app/api/library/circulation/[issueId]/return/route.ts(35,11): error TS2353: Object literal may only specify known properties, and 'condition' does not exist in type '{ id?: string | SQL<unknown> | PgColumn<ColumnBaseConfig<ColumnDataType, string>, {}, {}> | undefined; schoolId?: string | SQL<unknown> | PgColumn<...> | undefined; ... 15 more ...; returnedBy?: string | ... 3 more ... | undefined; }'.
+app/api/profile/route.ts(31,18): error TS2769: No overload matches this call.
+  Overload 1 of 3, '(left: PgColumn<{ name: "email"; tableName: "staff"; dataType: "string"; columnType: "PgText"; data: string; driverParam: string; notNull: false; hasDefault: false; isPrimaryKey: false; isAutoincrement: false; ... 4 more ...; generated: undefined; }, {}, {}>, right: string | SQLWrapper): SQL<...>', gave the following error.
+    Argument of type 'string | null' is not assignable to parameter of type 'string | SQLWrapper'.
+      Type 'null' is not assignable to type 'string | SQLWrapper'.
+  Overload 2 of 3, '(left: Aliased<string | null>, right: string | SQLWrapper | null): SQL<unknown>', gave the following error.
+    Argument of type 'PgColumn<{ name: "email"; tableName: "staff"; dataType: "string"; columnType: "PgText"; data: string; driverParam: string; notNull: false; hasDefault: false; isPrimaryKey: false; isAutoincrement: false; ... 4 more ...; generated: undefined; }, {}, {}>' is not assignable to parameter of type 'Aliased<string | null>'.
+      Type 'PgColumn<{ name: "email"; tableName: "staff"; dataType: "string"; columnType: "PgText"; data: string; driverParam: string; notNull: false; hasDefault: false; isPrimaryKey: false; isAutoincrement: false; ... 4 more ...; generated: undefined; }, {}, {}>' is missing the following properties from type 'Aliased<string | null>': sql, fieldAlias
+  Overload 3 of 3, '(left: never, right: unknown): SQL<unknown>', gave the following error.
+    Argument of type 'PgColumn<{ name: "email"; tableName: "staff"; dataType: "string"; columnType: "PgText"; data: string; driverParam: string; notNull: false; hasDefault: false; isPrimaryKey: false; isAutoincrement: false; ... 4 more ...; generated: undefined; }, {}, {}>' is not assignable to parameter of type 'never'.
+app/api/profile/route.ts(70,25): error TS18047: 'user.name' is possibly 'null'.
+app/api/profile/route.ts(74,9): error TS2769: No overload matches this call.
+  Overload 2 of 2, '(values: { id: string | SQL<unknown> | Placeholder<string, any>; userId: string | SQL<unknown> | Placeholder<string, any>; firstName: string | SQL<unknown> | Placeholder<...>; ... 21 more ...; religion?: string | ... 3 more ... | undefined; }[]): PgInsertBase<...>', gave the following error.
+    Object literal may only specify known properties, and 'id' does not exist in type '{ id: string | SQL<unknown> | Placeholder<string, any>; userId: string | SQL<unknown> | Placeholder<string, any>; firstName: string | SQL<unknown> | Placeholder<string, any>; ... 21 more ...; religion?: string | ... 3 more ... | undefined; }[]'.
+app/api/students/[id]/guardians/route.ts(17,114): error TS2304: Cannot find name 'sql'.
+app/api/transport/routes/[id]/route.ts(23,102): error TS2339: Property 'name' does not exist on type '{ id: string; }'.
+app/api/transport/routes/[id]/route.ts(24,102): error TS2339: Property 'description' does not exist on type '{ id: string; }'.
+app/api/transport/routes/[id]/route.ts(25,119): error TS2339: Property 'startPoint' does not exist on type '{ id: string; }'.
+app/api/transport/routes/[id]/route.ts(26,111): error TS2339: Property 'endPoint' does not exist on type '{ id: string; }'.
+app/api/transport/routes/[id]/route.ts(27,82): error TS2339: Property 'distance' does not exist on type '{ id: string; }'.
+app/api/transport/routes/[id]/route.ts(28,108): error TS2339: Property 'estimatedTime' does not exist on type '{ id: string; }'.
+app/api/transport/routes/[id]/route.ts(29,96): error TS2339: Property 'vehicleId' does not exist on type '{ id: string; }'.
+app/api/transport/routes/[id]/route.ts(30,93): error TS2339: Property 'driverId' does not exist on type '{ id: string; }'.
+app/api/transport/routes/[id]/route.ts(31,9): error TS2353: Object literal may only specify known properties, and 'status' does not exist in type '{ id?: string | SQL<unknown> | PgColumn<ColumnBaseConfig<ColumnDataType, string>, {}, {}> | undefined; name?: string | SQL<unknown> | PgColumn<...> | undefined; ... 16 more ...; feeAmount?: string | ... 2 more ... | undefined; }'.
+app/api/transport/routes/[id]/route.ts(31,79): error TS2339: Property 'status' does not exist on type '{ id: string; }'.
+app/api/transport/vehicles/[id]/route.ts(19,116): error TS2339: Property 'vehicleType' does not exist on type '{ id: string; }'.
+app/api/transport/vehicles/[id]/route.ts(20,81): error TS2339: Property 'make' does not exist on type '{ id: string; }'.
+app/api/transport/vehicles/[id]/route.ts(21,84): error TS2339: Property 'model' does not exist on type '{ id: string; }'.
+app/api/transport/vehicles/[id]/route.ts(22,70): error TS2339: Property 'year' does not exist on type '{ id: string; }'.
+app/api/transport/vehicles/[id]/route.ts(23,82): error TS2339: Property 'capacity' does not exist on type '{ id: string; }'.
+app/api/transport/vehicles/[id]/route.ts(24,84): error TS2339: Property 'color' does not exist on type '{ id: string; }'.
+app/api/transport/vehicles/[id]/route.ts(25,105): error TS2339: Property 'engineNumber' does not exist on type '{ id: string; }'.
+app/api/transport/vehicles/[id]/route.ts(26,108): error TS2339: Property 'chassisNumber' does not exist on type '{ id: string; }'.
+app/api/transport/vehicles/[id]/route.ts(27,147): error TS2339: Property 'insuranceExpiry' does not exist on type '{ id: string; }'.
+app/api/transport/vehicles/[id]/route.ts(28,159): error TS2339: Property 'registrationExpiry' does not exist on type '{ id: string; }'.
+app/api/transport/vehicles/[id]/route.ts(29,139): error TS2339: Property 'fitnessExpiry' does not exist on type '{ id: string; }'.
+app/api/transport/vehicles/[id]/route.ts(30,97): error TS2339: Property 'purchasePrice' does not exist on type '{ id: string; }'.
+app/api/transport/vehicles/[id]/route.ts(31,79): error TS2339: Property 'status' does not exist on type '{ id: string; }'.
+app/api/wellbeing/referrals/[id]/checkins/route.ts(12,17): error TS2345: Argument of type '"wellbeing:read"' is not assignable to parameter of type '"students:read" | "students:write" | "admissions:read" | "admissions:write" | "staff:read" | "staff:write" | "hr:read" | "hr:write" | "academics:read" | "academics:write" | ... 44 more ... | "documents:write"'.
+app/api/wellbeing/referrals/[id]/checkins/route.ts(18,45): error TS2304: Cannot find name 'wellbeingCheckins'.
+app/api/wellbeing/referrals/[id]/checkins/route.ts(18,73): error TS2304: Cannot find name 'wellbeingCheckins'.
+app/api/wellbeing/referrals/[id]/checkins/route.ts(18,116): error TS2304: Cannot find name 'desc'.
+app/api/wellbeing/referrals/[id]/checkins/route.ts(18,121): error TS2304: Cannot find name 'wellbeingCheckins'.
+scripts/create-admin-better-auth.ts(33,7): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Object literal may only specify known properties, and 'email' does not exist in type 'InputContext<"/sign-up/email", { method: "POST"; operationId: string; use: Middleware<MiddlewareOptions, (inputContext: MiddlewareInputContext<MiddlewareOptions>) => Promise<...>>[]; body: ZodIntersection<...>; cloneRequest: true; metadata: { ...; }; }>'.
+tests/auth-middleware.test.ts(12,35): error TS2307: Cannot find module '@/application/auth/permission-service' or its corresponding type declarations.
+tests/auth-middleware.test.ts(13,28): error TS2307: Cannot find module '@/infrastructure/auth/server' or its corresponding type declarations.
+tests/integration/v1-routes-live.test.ts(103,5): error TS2554: Expected 1-2 arguments, but got 3.
+tests/integration/v1-routes-live.test.ts(104,55): error TS2345: Argument of type '{}' is not assignable to parameter of type '{ params: Promise<Record<string, string | string[]>>; }'.
+  Property 'params' is missing in type '{}' but required in type '{ params: Promise<Record<string, string | string[]>>; }'.
+tests/integration/v1-routes-live.test.ts(234,5): error TS2554: Expected 1-2 arguments, but got 3.
+tests/integration/v1-routes-live.test.ts(235,31): error TS2345: Argument of type '{}' is not assignable to parameter of type '{ params: Promise<Record<string, string | string[]>>; }'.
+  Property 'params' is missing in type '{}' but required in type '{ params: Promise<Record<string, string | string[]>>; }'.
+tests/integration/v2-routes-live.test.ts(386,61): error TS2554: Expected 1-2 arguments, but got 3.
+tests/integration/v2-routes-live.test.ts(388,49): error TS2345: Argument of type 'undefined' is not assignable to parameter of type '{ params: Promise<Record<string, string | string[]>>; }'.
+tests/integration/v2-routes-live.test.ts(392,53): error TS2345: Argument of type 'undefined' is not assignable to parameter of type '{ params: Promise<Record<string, string | string[]>>; }'.
+tests/integration/v2-routes-live.test.ts(396,45): error TS2345: Argument of type 'undefined' is not assignable to parameter of type '{ params: Promise<Record<string, string | string[]>>; }'.
+tests/unit/clean-100.test.ts(7,44): error TS2345: Argument of type '{ schoolId: string; name: string; attributes: { isbn: string; }; }' is not assignable to parameter of type 'Omit<GenericProps, "id" | "createdAt" | "updatedAt"> & { id?: string | undefined; }'.
+  Property 'status' is missing in type '{ schoolId: string; name: string; attributes: { isbn: string; }; }' but required in type 'Omit<GenericProps, "id" | "createdAt" | "updatedAt">'.
+tests/unit/clean-100.test.ts(18,54): error TS2345: Argument of type '{ schoolId: string; name: string; attributes: {}; }' is not assignable to parameter of type 'Omit<GenericProps, "id" | "createdAt" | "updatedAt"> & { id?: string | undefined; }'.
+  Property 'status' is missing in type '{ schoolId: string; name: string; attributes: {}; }' but required in type 'Omit<GenericProps, "id" | "createdAt" | "updatedAt">'.
